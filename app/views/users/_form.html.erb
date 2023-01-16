@@ -1,0 +1,48 @@
+<%= form_with(model: user) do |form| %>
+  <% if user.errors.any? %>
+    <div style="color: blue">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+        <% user.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div>
+    <%= form.label :Name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+  <br>
+  <div>
+    <%= form.label :LastName, style: "display: block" %>
+    <%= form.text_field :last_name %>
+  </div>
+  <br>
+  <div>
+    <%= form.label :Email, style: "display: block" %>
+    <%= form.text_field :email %>
+  </div>
+   <br>
+  <div>
+    <%= form.label :Address, style: "display: block" %>
+    <%= form.text_field :address %>
+  </div>
+   <br>
+  <div>
+    <%= form.label :MobileNo, style: "display: block" %>
+    <%= form.text_field :mobile_no %>
+  </div>
+      <br>
+      <div>
+        <%= form.label :Appointment_Type, style: "display: block" %>
+        <%= form.select :appointment_type, ['Doctor', 'Patient'], {include_blank: "Select Type", required: true} %>
+      </div>
+      <br>
+
+  <div>
+    <%= form.submit %>
+  </div>
+
+<% end %>
